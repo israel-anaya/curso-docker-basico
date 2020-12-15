@@ -1,0 +1,9 @@
+Lista los procesos dentro de un contenedor
+> docker container top {container name}
+
+Muestra los detalles de configuración de un contenedor
+> docker container inspect {container name}
+
+Muestra estadísticas de rendimiento de todos los contenedores (CPU, RAM, etc)
+> docker container stats {container name}
+

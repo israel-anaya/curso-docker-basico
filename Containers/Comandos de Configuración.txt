@@ -1,0 +1,8 @@
+Proporciona información sobre la versión
+> docker version
+
+Muestra información sobre el estado del Host Docker y las configuraciones más relevantes
+> docker info
+
+Estructura de un comando Docker
+> docker <command> <sub-command> (options)

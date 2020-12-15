@@ -1,0 +1,8 @@
+Inicia el contenedor e inmediatamente abre la línea de comandos del contenedor
+> docker container run -it {image tag} <bash><sh>
+
+Permite abrir la línea de comandos en un contenedor que ya se encuentra en ejecución
+> docker container exec -it {container name} <bash><sh>
+
+Dependiendo de la imagen ejecutada el shell o bash estarán disponibles.
+

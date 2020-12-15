@@ -1,0 +1,17 @@
+Estructura de un comando Docker
+> docker <command> <sub-command> (options)
+
+Ayuda sobre los comandos principales de docker
+> docker help 
+
+Ayuda sobre los comandos para gestion de contenedores
+> docker container help
+
+Muestra los contenedores que se estan ejecutando
+> docker container ls
+
+Ayuda sobre los comandos para gestion de imagenes
+> docker image help
+
+Muestra las imagenes del cache
+> docker image ls

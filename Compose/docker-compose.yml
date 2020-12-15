@@ -1,0 +1,52 @@
+# Para mas información https://docs.docker.com/compose/
+
+version: '3.3'
+
+# Configuración de las redes a usar
+networks:
+  dev-network: # Definimos una red llamada dev-network
+    driver: bridge
+
+# Configuración de los volúmenes a usar
+volumes:
+  sonarqubedb-data: # Volumen para la base de datos postgres
+  sonarqube_conf: # Volumen para el almacenamiento de la configuración
+  sonarqube_data: # Volumen para el almacenamiento de datos generados
+  sonarqube_logs: # Volumen para el almacenamiento de logs
+  sonarqube_extensions: # Volumen para el almacenamiento de las extensiones instaladas
+
+# Definimos nuestros contenedores
+services:
+  sonarqubedb: # Contenedor para la base de datos de sonar
+    image: postgres:11.1-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    networks: 
+      - dev-network
+    volumes:
+      - sonarqubedb-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: sonar
+      POSTGRES_USER: sonar
+
+  sonarqube-server: # Contenedor para el servidor de sonarqube
+    image: sonarqube:7.9-community
+    restart: always
+    ports:
+      - 8091:9000
+    networks: 
+      - dev-network
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf 
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_extensions:/opt/sonarqube/extensions
+    environment:
+      sonar.search.javaAdditionalOpts: "-Dnode.store.allow_mmapfs=false"
+      sonar.jdbc.username: sonar
+      sonar.jdbc.password: sonar
+      sonar.jdbc.url: jdbc:postgresql://sonarqubedb:5432/sonar
+    depends_on:
+      - sonarqubedb
+

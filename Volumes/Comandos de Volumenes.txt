@@ -1,0 +1,15 @@
+Lista los volúmenes que están en nuestro host
+> docker volume ls
+
+Crea un volumen
+> docker volume create {volume name}
+
+Inspecciona la información de un volumen
+> docker volume inspect {volume name}
+
+Elimina un volumen
+> docker volume rm {volume name}
+
+Elimina los volúmenes que no están en uso por algún contenedor
+> docker volume prune
+

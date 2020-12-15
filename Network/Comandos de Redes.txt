@@ -1,0 +1,13 @@
+Muestra las redes existentes
+> docker network ls
+
+Muestra información de una red
+> docker network inspect
+
+Crea una nueva red
+> docker network create <network-name>
+
+Conectando y desconectando un contenedor a una red
+> docker network connect/disconnect
+
+

@@ -1,0 +1,11 @@
+Lista los contenedores en ejecución de nuestro host
+> docker container ls
+
+Ejecuta un contenedor
+> docker container run {image tag}
+
+Detiene un contenedor
+> docker container stop {container name}{container ID}
+
+Elimina un contenedor (opción -f para forzar la eliminación)
+> docker container rm {container name}{container ID}
